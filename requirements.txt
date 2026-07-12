@@ -1,0 +1,12 @@
+# Core reproduction (EHR arm, fusion, metrics, SHAP)
+numpy>=1.24
+pandas>=2.0
+scikit-learn>=1.3
+shap>=0.44
+matplotlib>=3.7
+
+# Data download (optional; requires accepting the Stanford AIMI data-use agreement)
+gdown>=4.7
+
+# Exploratory imaging arm only (NOT used in the reported fusion) — install if you run src/exploratory_yolo.py
+# ultralytics>=8.0

@@ -1,0 +1,26 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite the accompanying manuscript."
+title: "RadFusion PE — independent reproduction, interpretability, and label-leakage audit"
+authors:
+  - family-names: Jaffar
+    given-names: Zain A.
+    orcid: "https://orcid.org/0009-0004-1273-3030"
+    affiliation: "Rutgers University, New Brunswick, NJ, USA"
+version: "1.0.0"
+license: MIT
+abstract: >
+  Code reproducing multimodal late-fusion pulmonary-embolism detection on the public Stanford AIMI
+  RadFusion benchmark. The imaging arm reuses the benchmark's provided (PENet-derived) study-level
+  vision-model scores; the EHR arm is re-implemented as an elastic-net logistic model (with a
+  support-vector variant); the two are combined by average/maximum late fusion, and the EHR arm is
+  audited with SHAP. The audit surfaces a temporal label-leakage risk in the benchmark.
+preferred-citation:
+  type: article
+  title: >
+    A Multimodal Late-Fusion Pipeline for Pulmonary Embolism Detection from CT Pulmonary Angiography
+    and Electronic Health Records, with Interpretable EHR Feature Attribution: A Reproducibility Study
+  authors:
+    - family-names: Jaffar
+      given-names: Zain A.
+      orcid: "https://orcid.org/0009-0004-1273-3030"
+  year: 2026

@@ -1,0 +1,24 @@
+# data (never commit the RadFusion dataset — it is under the AIMI data-use agreement)
+data/
+*.csv
+
+# results / artifacts
+results/
+*.png
+*.tiff
+runs/
+*.pt
+
+# python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+*.egg-info/
+.ipynb_checkpoints/
+
+# os / editor
+.DS_Store
+.vscode/
+.idea/
