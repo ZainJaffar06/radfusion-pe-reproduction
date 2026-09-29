@@ -45,6 +45,28 @@ Expected files (placed in `./data/`): `Demographics.csv`, `INP_MED.csv`, `OUT_ME
 `ICD.csv`, `LABS.csv`, `Vision.csv`. All are keyed by a study identifier `idx`; `Vision.csv` also
 carries `label`, `pred`, `pe_type`, and `split`.
 
+## Reproduce the reported numbers (manuscript revision)
+
+The script that regenerates **every number, table and figure in the revised manuscript** is
+[`revision/revision_analyses.py`](revision/revision_analyses.py):
+
+```bash
+pip install -r revision/requirements.txt
+# place the RadFusion CSVs (Demographics, INP_MED, OUT_MED, Vitals, ICD, LABS, Vision) in ./data/
+python revision/revision_analyses.py   # tables -> results/*.csv, results/results.json; figures -> results/figures/
+python revision/figure1.py             # Figure 1 (pipeline schematic)
+```
+
+It uses the EHR configuration that produced the reported results — the benchmark reference implementation
+(per-table zero-variance removal and z-standardization; elastic-net logistic regression with C=0.1,
+L1 ratio 0.99, balanced class weights, saga solver, max_iter=1000, seed 0) — and adds bootstrap 95% CIs,
+paired DeLong tests, exact linear SHAP, the prespecified label-leakage feature-exclusion ablation, and
+sensitivity analyses (training-only standardization; 5-fold cross-validated grid search, which selects the
+same hyperparameters). The exact leakage-candidate columns are written to `results/leakage_feature_map.csv`.
+
+The older `run_reproduction.py` below (grid search, extra 1% filter) is kept for reference; it is **not**
+the configuration behind the reported numbers.
+
 ## Reproduce
 
 ```bash
